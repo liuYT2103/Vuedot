@@ -6,19 +6,19 @@
 script = ExtResource("1_wtcfe")
 
 [node name="LabelComputed" type="Label" parent="." unique_id=27830025]
-offset_left = 621.0
-offset_top = 200.0
-offset_right = 891.0
-offset_bottom = 365.0
+offset_left = 287.0
+offset_top = 205.0
+offset_right = 1159.0
+offset_bottom = 370.0
 theme_override_font_sizes/font_size = 120
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=1972446094]
-offset_left = 623.0
+offset_left = 298.0
 offset_top = 409.0
-offset_right = 893.0
+offset_right = 1148.0
 offset_bottom = 574.0
 theme_override_font_sizes/font_size = 120
 text = "1"
@@ -35,3 +35,7 @@ theme_override_font_sizes/font_size = 50
 [node name="ColorPicker" type="ColorPicker" parent="." unique_id=1233606050]
 offset_right = 298.0
 offset_bottom = 607.0
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1327085764]
+offset_right = 8.0
+offset_bottom = 8.0

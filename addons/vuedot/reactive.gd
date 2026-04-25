@@ -12,38 +12,34 @@ func ref(initial_value) -> Ref:
 	return Ref.new(initial_value)
 
 func computed(getter: Callable) -> Ref:
-	var result = ref(null)
-	var _dummy = effect(func():
-		result.value = getter.call()
+	var result:Computed = Computed.new()
+	var weak_res:WeakRef = weakref(result)
+	var eff:ReactiveEffect = null
+	eff = effect(func():
+		var r = weak_res.get_ref() as Computed
+		if not r and eff:
+			eff.stop()
+			return
+		r._update_cache(getter.call())
 	)
+	result._effect = eff
 	return result
 
 func bind(node: Node, property: StringName, ref: Ref, callback: Callable = func(_n): pass) -> void:
-	var binds: Dictionary = node.get_meta("__reactive_binds__", {})
-	binds[property] = ref
-	node.set_meta("__reactive_binds__", binds)
-	
-	var eff = Vue.effect(func():
-		node.set(property, ref.value)
+	var eff = effect(func():
+		var val = ref.value # 强制建立依赖关系，避免首帧已在编辑状态无法关联依赖
+		if node is LineEdit and node.is_editing():
+			return
+		node.set(property, val)
 		callback.call(node)
 	)
-	
-	var effects = node.get_meta("__reactive_effects__", [])
-	effects.append(eff)
-	node.set_meta("__reactive_effects__", effects)
-	
-	if not node.is_connected("tree_exited", _on_node_exited):
-		node.tree_exited.connect(_on_node_exited.bind(node), CONNECT_ONE_SHOT)
+	if is_instance_valid(node):
+		node.tree_exited.connect(func(): eff.stop())
 
-
-
-func _on_node_exited(node: Node) -> void:
-	var effects = node.get_meta("__reactive_effects__", [])
-	for eff in effects:
-		eff.stop()
-	node.remove_meta("__reactive_effects__")
-	node.remove_meta("__reactive_binds__")
-
-func get_bound_ref(node: Node, property: StringName) -> Ref:
-	var binds = node.get_meta("__reactive_binds__", {})
-	return binds.get(property, null)
+func model(node:Node, property: StringName, ref:Ref):
+	bind(node, property, ref)
+	var update_func = func(nv): ref.value = nv
+	if node is LineEdit or node is TextEdit:
+		node.text_changed.connect(update_func)
+	elif node is ColorPicker:
+		node.color_changed.connect(update_func)

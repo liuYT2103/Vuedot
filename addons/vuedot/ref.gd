@@ -1,5 +1,4 @@
-extends RefCounted
-class_name Ref
+class_name Ref extends RefCounted
 
 var _value: Variant
 var dep: Dep = Dep.new()

@@ -1,23 +1,30 @@
 class_name Dep extends RefCounted
 
-var subs: Array[ReactiveEffect] = []   # 订阅此 dep 的所有 effect
+var subs: Array[WeakRef] = []   # 订阅此 dep 的所有 effect
 
 # 添加当前活跃的 effect 到依赖列表
 func depend(effect: ReactiveEffect):
-	if effect != null and not subs.has(effect):
-		subs.append(effect)
-		# 反向记录：effect 知道自己依赖了此 dep
-		effect.add_dep(self)
-
-# 通知所有订阅者重新执行
+	if effect == null:
+		return
+	for w in subs:
+		if w.get_ref() == effect:
+			return
+	subs.append(weakref(effect))
+	for w in subs:
+		print(w.get_ref())
+	print("")
+	
+# 派发更新
 func notify():
-	# 复制一份，避免遍历过程中修改原数组
-	for effect in subs.duplicate():
-		if effect.active:
-			effect.run()
+	for w in subs:
+		var eff = w.get_ref()
+		if eff and eff.active:
+			eff.run()
+	subs = subs.filter(func(w): return w.get_ref() != null)
 
 # 移除指定的 effect
 func remove(effect: ReactiveEffect):
-	var idx = subs.find(effect)
-	if idx != -1:
-		subs.remove_at(idx)
+	subs = subs.filter(func(w): 
+		var e = w.get_ref()
+		return e != null and e != effect
+	)
