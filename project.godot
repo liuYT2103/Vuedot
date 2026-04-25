@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Vue="*uid://cq6nh253ewf6g"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/vuedot/plugin.cfg")
