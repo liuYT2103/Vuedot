@@ -43,3 +43,16 @@ func model(node:Node, property: StringName, ref:Ref):
 		node.text_changed.connect(update_func)
 	elif node is ColorPicker:
 		node.color_changed.connect(update_func)
+
+func watch(ref:Ref, patch_func:Callable):
+	var original_val = null;
+	var weak_res:WeakRef = weakref(ref)
+	var eff:ReactiveEffect = null
+	eff = effect(func():
+		var r = weak_res.get_ref()
+		if not r:
+			eff.stop()
+			return
+		patch_func.bind(original_val, ref.value).call()
+		original_val = ref.value
+	)

@@ -10,9 +10,7 @@ func depend(effect: ReactiveEffect):
 		if w.get_ref() == effect:
 			return
 	subs.append(weakref(effect))
-	for w in subs:
-		print(w.get_ref())
-	print("")
+	effect.add_dep(self)
 	
 # 派发更新
 func notify():
