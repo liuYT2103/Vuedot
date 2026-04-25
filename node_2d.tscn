@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c8ox43spsaot5"]
+
+[ext_resource type="Script" uid="uid://c1sephalwoa26" path="res://node_2d.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=780300243]
+script = ExtResource("1_wtcfe")
+
+[node name="LabelComputed" type="Label" parent="." unique_id=27830025]
+offset_left = 621.0
+offset_top = 200.0
+offset_right = 891.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 120
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1972446094]
+offset_left = 623.0
+offset_top = 409.0
+offset_right = 893.0
+offset_bottom = 574.0
+theme_override_font_sizes/font_size = 120
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=2063039254]
+offset_left = 518.0
+offset_top = 35.0
+offset_right = 984.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+
+[node name="ColorPicker" type="ColorPicker" parent="." unique_id=1233606050]
+offset_right = 298.0
+offset_bottom = 607.0
