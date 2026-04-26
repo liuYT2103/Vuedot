@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://efwk8n348gxn"]
+
+[ext_resource type="Script" uid="uid://bio3mw5piibcj" path="res://example/Hero/HeroDetail.gd" id="1_pq8k1"]
+
+[node name="HeroDetail" type="Panel" unique_id=1878757086]
+script = ExtResource("1_pq8k1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2138518142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -190.5
+offset_right = 171.0
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="VBoxContainer" parent="HBoxContainer" unique_id=1076158461]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/Label" unique_id=1536918395]
+layout_mode = 2
+text = "姓名"
+
+[node name="Camp" type="Label" parent="HBoxContainer/Label" unique_id=75428510]
+layout_mode = 2
+text = "种族"
+
+[node name="Career" type="Label" parent="HBoxContainer/Label" unique_id=1133529114]
+layout_mode = 2
+text = "职业"
+
+[node name="Detail" type="Label" parent="HBoxContainer/Label" unique_id=2003186809]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+text = "详情"
+
+[node name="Value" type="VBoxContainer" parent="HBoxContainer" unique_id=872200389]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/Value" unique_id=2038036362]
+layout_mode = 2
+
+[node name="Camp" type="Label" parent="HBoxContainer/Value" unique_id=177316104]
+layout_mode = 2
+
+[node name="Career" type="Label" parent="HBoxContainer/Value" unique_id=1267499017]
+layout_mode = 2
+
+[node name="Detail" type="RichTextLabel" parent="HBoxContainer/Value" unique_id=454663785]
+layout_mode = 2
+size_flags_vertical = 3

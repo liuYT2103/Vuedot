@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c8ox43spsaot5"]
 
-[ext_resource type="Script" uid="uid://c1sephalwoa26" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://c1sephalwoa26" path="res://example/Simple.gd" id="1_w0dsd"]
 
-[node name="Node2D" type="Node2D" unique_id=780300243]
-script = ExtResource("1_wtcfe")
+[node name="Simple" type="Node2D" unique_id=780300243]
+script = ExtResource("1_w0dsd")
 
 [node name="LabelComputed" type="Label" parent="." unique_id=27830025]
 offset_left = 287.0
@@ -48,3 +48,20 @@ offset_left = 829.0
 offset_top = 213.0
 offset_right = 1084.0
 offset_bottom = 360.0
+
+[node name="Button" type="Button" parent="." unique_id=81109036]
+offset_left = 830.0
+offset_top = 161.0
+offset_right = 934.0
+offset_bottom = 192.0
+text = "清空所有数据"
+
+[node name="Button2" type="Button" parent="." unique_id=2069492523]
+offset_left = 947.0
+offset_top = 159.0
+offset_right = 1083.0
+offset_bottom = 190.0
+text = "随机删除一个节点"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

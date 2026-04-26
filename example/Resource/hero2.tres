@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeroData" format=3 uid="uid://dkmh2m3s7mpef"]
+
+[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://example/Resource/hero.gd" id="1_wvlwq"]
+
+[resource]
+script = ExtResource("1_wvlwq")
+name = "奥尔"
+camp = "精灵"
+career = "法师"
+detail = "奥尔精灵法师奥尔精灵法师奥尔精灵法师奥尔精灵法师奥尔精灵法师奥尔精灵法师奥尔精灵法师奥尔精灵法师"
+metadata/_custom_type_script = "uid://c35casj3n57jh"

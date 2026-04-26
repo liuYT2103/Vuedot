@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 const AUTOLOAD_NAME = "Vue"
-const AUTOLOAD_PATH = "res://addons/vuedot/reactive.gd"   # 根据实际路径修改
+const AUTOLOAD_PATH = "res://addons/vuedot/reactive/index.gd"   # 根据实际路径修改
 
 
 func _enter_tree() -> void:

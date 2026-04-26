@@ -23,7 +23,20 @@ func bind(node: Node, property: StringName, ref: Ref, callback: Callable = func(
 		var val = ref.value # 强制建立依赖关系，避免首帧已在编辑状态无法关联依赖
 		if _is_editable(node):
 			return
-		node.set(property, val)
+		if not property.is_empty():
+			node.set(property, val)
+		callback.call(node)
+	)
+	if is_instance_valid(node):
+		node.tree_exited.connect(func(): eff.stop())
+	
+func deepbind(node: Node, property: StringName, ref: Ref, ref_property: String, callback: Callable = func(_n): pass) -> void:
+	var eff = effect(func():
+		var val = ref.value
+		if _is_editable(node):
+			return
+		if val:
+			node.set(property, val[ref_property])
 		callback.call(node)
 	)
 	if is_instance_valid(node):
@@ -51,6 +64,8 @@ func watch(ref:Ref, callable:Callable, node:Node = null) -> ReactiveEffect:
 		callable.call(org[0], ref.value)
 		org[0] = ref.value
 	)
+	if node:
+		node.tree_exited.connect(eff.stop)
 	return eff
 
 func clean(effect:ReactiveEffect):

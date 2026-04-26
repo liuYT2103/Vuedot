@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://de6ckvt56gdvf"]
+
+[ext_resource type="Script" uid="uid://cyvvct1k5h60u" path="res://example/Hero/Hero.gd" id="1_021aw"]
+[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://example/Resource/hero.gd" id="2_vnb3p"]
+[ext_resource type="PackedScene" uid="uid://448dw7wgccb6" path="res://example/Hero/HeroList.tscn" id="2_x0fil"]
+[ext_resource type="Resource" uid="uid://dqi14270vjfn1" path="res://example/Resource/hero1.tres" id="3_dxch5"]
+[ext_resource type="PackedScene" uid="uid://efwk8n348gxn" path="res://example/Hero/HeroDetail.tscn" id="3_tpwou"]
+[ext_resource type="Resource" uid="uid://dkmh2m3s7mpef" path="res://example/Resource/hero2.tres" id="4_hw8u1"]
+[ext_resource type="Resource" uid="uid://bs1p1c1u0ug56" path="res://example/Resource/hero3.tres" id="5_nicno"]
+
+[node name="Hero" type="Control" unique_id=1389904917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_021aw")
+heroList = Array[ExtResource("2_vnb3p")]([ExtResource("3_dxch5"), ExtResource("4_hw8u1"), ExtResource("5_nicno")])
+
+[node name="HeroList" parent="." unique_id=391399012 instance=ExtResource("2_x0fil")]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.0
+offset_top = -189.0
+offset_right = -195.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+item_count = 0
+
+[node name="HeroDetail" parent="." unique_id=1878757086 instance=ExtResource("3_tpwou")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1547645826]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 38.0
+offset_right = 506.0
+offset_bottom = 69.0
+text = "清空所有数据"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

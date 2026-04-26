@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeroData" format=3 uid="uid://bs1p1c1u0ug56"]
+
+[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://example/Resource/hero.gd" id="1_8jw2a"]
+
+[resource]
+script = ExtResource("1_8jw2a")
+name = "古雷"
+camp = "兽人"
+career = "战士"
+detail = "古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士古雷兽人战士"
+metadata/_custom_type_script = "uid://c35casj3n57jh"

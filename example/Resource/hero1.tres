@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeroData" format=3 uid="uid://dqi14270vjfn1"]
+
+[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://example/Resource/hero.gd" id="1_lfgd0"]
+
+[resource]
+script = ExtResource("1_lfgd0")
+name = "古琴"
+camp = "人类"
+career = "法师"
+detail = "古琴人类法师古琴人类法师古琴人类法师古琴人类法师古琴人类法师古琴人类法师古琴人类法师古琴人类法师古琴人类法师"
+metadata/_custom_type_script = "uid://c35casj3n57jh"
