@@ -1,8 +1,9 @@
 extends Panel
 class_name HeroDetail
 
-func set_props(ref:Ref):
-	Vue.deepbind($HBoxContainer/Value/Name, "text", ref, "name")
-	Vue.deepbind($HBoxContainer/Value/Camp, "text", ref, "camp")
-	Vue.deepbind($HBoxContainer/Value/Career, "text", ref, "career")
-	Vue.deepbind($HBoxContainer/Value/Detail, "text", ref, "detail")
+func set_hero(hero):
+	if hero == null : return
+	$HBoxContainer/Value/Name.text = hero.name
+	$HBoxContainer/Value/Camp.text = hero.camp
+	$HBoxContainer/Value/Career.text = hero.career
+	$HBoxContainer/Value/Detail.text = hero.detail

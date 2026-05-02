@@ -1,9 +1,9 @@
 class_name Dep extends RefCounted
 
-var subs: Dictionary[int, ReactiveEffect] = {}   # 订阅此 dep 的所有 effect
+var subs: Dictionary[int, Effect] = {}   # 订阅此 dep 的所有 effect
 
 # 添加当前活跃的 effect 到依赖列表
-func depend(effect: ReactiveEffect):
+func depend(effect: Effect):
 	if effect != null:
 		subs[effect.get_instance_id()] = effect
 		effect.add_dep(self)
@@ -16,5 +16,5 @@ func notify():
 			effect.run()
 
 # 移除指定的 effect
-func remove(effect: ReactiveEffect):
+func remove(effect: Effect):
 	subs.erase(effect.get_instance_id())

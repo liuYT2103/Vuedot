@@ -1,4 +1,6 @@
-class_name ReactiveEffect extends RefCounted
+class_name Effect extends RefCounted
+
+static var active_effect: Effect = null
 
 var fn: Callable               # 要执行的函数
 var active: bool = true        # 是否活跃
@@ -18,10 +20,10 @@ func run():
 	cleanup_deps()
 	
 	# 设置全局活跃 effect
-	var prev = Reactive.active_effect
-	Reactive.active_effect = self
+	var prev = active_effect
+	active_effect = self
 	fn.call()
-	Reactive.active_effect = prev
+	active_effect = prev
 	
 	running = false
 

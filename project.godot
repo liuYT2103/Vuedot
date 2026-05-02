@@ -14,10 +14,6 @@ config/name="Vuedot"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Vue="*uid://cq6nh253ewf6g"
-
 [display]
 
 window/stretch/mode="canvas_items"
