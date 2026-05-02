@@ -10,7 +10,7 @@ func _ready() -> void:
 	V.model([$LineEdit, $TextEdit], "text", val)
 	V.model([$ColorPicker2, $ColorPicker], "color", color)
 	V.hyper($Label, func(): $Label.label_settings.font_color = color.value)
-	V.bind($Label, null, val)
+	V.bind($Label, "text", val)
 	V.bind($LabelComputed, "text", comp)
 	V.bind([$Label, $LabelComputed, $LineEdit, $LineEdit2, $TextEdit], "theme_override_colors/font_color", color)
 
