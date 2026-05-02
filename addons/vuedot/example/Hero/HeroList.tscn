@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://448dw7wgccb6"]
 
-[ext_resource type="Script" uid="uid://7ppawtpfd13c" path="res://example/Hero/HeroList.gd" id="1_s0q1t"]
+[ext_resource type="Script" uid="uid://7ppawtpfd13c" path="res://addons/vuedot/example/Hero/HeroList.gd" id="1_s0q1t"]
 
 [node name="HeroList" type="ItemList" unique_id=391399012]
 item_count = 1

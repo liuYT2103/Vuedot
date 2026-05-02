@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8ox43spsaot5"]
 
-[ext_resource type="Script" uid="uid://c1sephalwoa26" path="res://example/Simple.gd" id="1_w0dsd"]
+[ext_resource type="Script" uid="uid://c1sephalwoa26" path="res://addons/vuedot/example/Simple.gd" id="1_w0dsd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pvict"]
 font_size = 90

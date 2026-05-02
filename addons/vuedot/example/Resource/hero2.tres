@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="HeroData" format=3 uid="uid://dkmh2m3s7mpef"]
 
-[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://example/Resource/hero.gd" id="1_wvlwq"]
+[ext_resource type="Script" uid="uid://c35casj3n57jh" path="res://addons/vuedot/example/Resource/hero.gd" id="1_wvlwq"]
 
 [resource]
 script = ExtResource("1_wvlwq")

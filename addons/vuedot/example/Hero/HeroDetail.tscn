@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://efwk8n348gxn"]
 
-[ext_resource type="Script" uid="uid://bio3mw5piibcj" path="res://example/Hero/HeroDetail.gd" id="1_pq8k1"]
+[ext_resource type="Script" uid="uid://bio3mw5piibcj" path="res://addons/vuedot/example/Hero/HeroDetail.gd" id="1_pq8k1"]
 
 [node name="HeroDetail" type="Panel" unique_id=1878757086]
 script = ExtResource("1_pq8k1")
